@@ -13,23 +13,18 @@
   
 </template>
 <script>
-
-import { mapGetters, mapActions } from 'vuex'
 import HomeSection from '@/components/Home_Section'
 import HomeSearchBox from '@/components/Home_SearchBox'
+import { mapGetters, mapActions } from 'vuex'
 export default{
 	name: 'home',
-
 	components: { HomeSection, HomeSearchBox },
-
 	coputed: mapGetters({
   	sectionList: 'sectionList'
   }),
-
 	mounted(){
 		console.log('anything.', this.sectionList);
 	}
-
 }	
 </script>
 <style lang="less">

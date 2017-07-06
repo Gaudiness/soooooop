@@ -1,7 +1,7 @@
 import * as types from '../mutation-types'
 
 const state = {
-	sectionList:[
+	sectionList: [
 		{ name: 'Movie', backgroud: '#222' },
 		{ name: 'Music', backgroud: '#B82525' },
 		{ name: 'Picture', backgroud: '#0099ff' }
