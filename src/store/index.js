@@ -23,7 +23,7 @@ if (module.hot) {
   module.hot.accept(['./modules/home'], () => {
     // 获取更新后的模块
     // 因为 babel 6 的模块编译格式问题，这里需要加上 .default
-    const menu = require('./modules/home').default
+    const home = require('./modules/home').default
     // 加载新模块 
     store.hotUpdate({
       modules: {
