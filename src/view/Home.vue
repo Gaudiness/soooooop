@@ -1,14 +1,22 @@
 <template>
-  <div>
-    home
+  <div class="s_home">
+    <HomeSection></HomeSection>
+    <HomeSection></HomeSection>
+    <HomeSection></HomeSection>
+    <HomeSection></HomeSection>
+    <HomeSearchBox></HomeSearchBox>
   </div>
+  
 </template>
 <script>
 
-// import { mapGetters, mapActions } from 'vuex'
-
+import { mapGetters, mapActions } from 'vuex'
+import HomeSection from '@/components/Home_Section'
+import HomeSearchBox from '@/components/Home_SearchBox'
 export default{
-	name: '',
+	name: 'home',
+
+	components: { HomeSection, HomeSearchBox },
 
 	data(){
 	    return{
@@ -21,6 +29,11 @@ export default{
 
 }	
 </script>
-<style>
-	
+<style lang="less">
+.s_home{
+	postion: relative;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
 </style>
