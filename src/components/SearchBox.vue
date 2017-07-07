@@ -1,13 +1,12 @@
 <template>
-	<div>
-		searchbox
+	<div class="">
+		
 	</div>
 </template>
 
 <script>
 export default{
 	name: 'SearchBox',
-
 	data(){
 		return {
 
@@ -17,5 +16,5 @@ export default{
 </script>
 
 <style lang="less">
-	
+
 </style>

@@ -1,35 +1,37 @@
 <template>
   <div class="s_home">
-  	<div class="s_section">
-	    <HomeSection>v-for="item in sectionList"</HomeSection>
+  	<div class="s_section" :style="{top: currentSection}">
+        <template v-for="item in sectionList">
+	       <SectionItem :item="item"></SectionItem>
+        </template>
     </div>
     <div class="s_search">
-    	<HomeSearchBox></HomeSearchBox>
+    	<SearchBox></SearchBox>
     </div>
     <div class="s_slide">
-    	
+    	<SlideBar :sectionList="sectionList"></SlideBar>
     </div>
   </div>
-  
 </template>
 <script>
-import HomeSection from '@/components/Home_Section'
-import HomeSearchBox from '@/components/Home_SearchBox'
+import SectionItem from '@/components/Section'
+import SearchBox from '@/components/SearchBox'
+import SlideBar from '@/components/SlideBar'
 import { mapGetters, mapActions } from 'vuex'
 export default{
 	name: 'home',
-	components: { HomeSection, HomeSearchBox },
-	coputed: mapGetters({
-  	sectionList: 'sectionList'
+	components: { SectionItem, SearchBox, SlideBar },
+	computed: mapGetters({
+  	sectionList: 'sectionList',
+    currentSection: 'currentSection'
   }),
 	mounted(){
-		console.log('anything.', this.sectionList);
 	}
 }	
 </script>
 <style lang="less">
 .s_home{
-	postion: relative;
+	position: relative;
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
@@ -37,6 +39,9 @@ export default{
 	.s_section{
 		position: absolute;
 		top: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-transition: top 0.5s;
 	}
 
 	.s_search{
