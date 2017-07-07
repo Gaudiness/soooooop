@@ -1,0 +1,21 @@
+
+@font-face {font-family: "soop";
+  src: url('iconfont.eot?t=1499430015630'); /* IE9*/
+  src: url('iconfont.eot?t=1499430015630#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('iconfont.woff?t=1499430015630') format('woff'), /* chrome, firefox */
+  url('iconfont.ttf?t=1499430015630') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('iconfont.svg?t=1499430015630#soop') format('svg'); /* iOS 4.1- */
+}
+
+.soop {
+  font-family:"soop" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.s-bigger:before { content: "\e68c"; }
+
+.s-search:before { content: "\e61d"; }
+

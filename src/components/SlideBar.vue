@@ -3,7 +3,7 @@
     <div class="s_slide_container">
       <div class="s_slide_item" v-for="item in sectionList" 
         @click="turnHomePage(item)"
-        :class="{s_slide_item_current: item.current}"></div>
+        :class="{s_slide_item_current: item.current}">{{item.name}}</div>
     </div>
   </div>
 </template>
@@ -35,29 +35,27 @@ export default{
 
     .s_slide_item{
       cursor: pointer;
-      width: 15px;
-      height: 15px;
-      border-radius: 50%;
-      border: 3px solid #ddd;
-      backround: transparent;
-      margin: 10px 0;
+      width: 100%;
+      height: 30px;
+      line-height: 30px;
+      background: rgba(0, 0, 0, 0.3);
+      color: white;
+      border-top-left-radius: 3px;
+      border-bottom-left-radius: 3px;
+      margin: 5px 0;
+      padding: 0 15px;
+      text-align: center;
     }
 
-    .s_slide_item:hover{
-      border-color: #222;
-    }
-
+    .s_slide_item:hover,
     .s_slide_item_current{
-      border-color: #222;
-      background: #222;
+      background: rgba(255, 255, 255, 0.5);
+      color: black;
     }
 
-    .s_slide_item_current{
-      border-color: #333!important;
-      background: #333!important;
-    }
-
-    
   }
 }	
+
+
+
 </style>

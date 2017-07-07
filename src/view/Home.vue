@@ -70,7 +70,7 @@ export default{
 
 	.s_search{
 		position: absolute;
-		top: 200px;
+		top: 40px;
 		width: 100%;
 		height: 120px;
 	}
@@ -78,7 +78,6 @@ export default{
 	.s_slide{
 		position: absolute;
 		right: 0;
-		width: 40px;
 		height: 100%;
 	}
 }

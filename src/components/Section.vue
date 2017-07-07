@@ -1,8 +1,8 @@
 <template>
 	<div class="s_section_item" :style="{backgroundImage:'url('+item.background+')'}">
 		<div class="s_section_cover">
-			{{ item.name }}
-			<div class="s_section_author">by sun. Don't settle for less</div>
+			<!-- {{ item.name }} -->
+			<div class="s_section_author">Don't settle for less __by sun.</div>
 		</div>
 	</div>
 </template>

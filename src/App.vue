@@ -11,6 +11,15 @@ export default {
 </script>
 
 <style lang="less">
+@import 'font/iconfont.css';
+
+::selection,
+::-webkit-selection,
+::-moz-selection {
+  background: #ddd; 
+  color: whtie;
+}
+
 html, body{
   margin: 0;
   padding: 0;
