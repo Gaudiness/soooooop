@@ -26,7 +26,7 @@ export default{
 .s_section_item{
 	width: 100%;
 	height: 100%;
-	background: url(../images/pic.jpg) no-repeat 100% 100%;
+	background: url(../images/pic.jpg) no-repeat center;
 
 	.s_section_cover{
 		position: relative;

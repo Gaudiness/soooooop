@@ -35,8 +35,8 @@ export default{
 
     .s_slide_item{
       cursor: pointer;
-      width: 20px;
-      height: 20px;
+      width: 15px;
+      height: 15px;
       border-radius: 50%;
       border: 3px solid #ddd;
       backround: transparent;

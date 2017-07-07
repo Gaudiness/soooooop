@@ -1,6 +1,6 @@
 <template>
-	<div class="">
-		<div>
+	<div class="s_searchbox">
+		<div class="">
       <div></div>  
     </div>
 	</div>
@@ -18,5 +18,7 @@ export default{
 </script>
 
 <style lang="less">
-
+.s_searchbox{
+	
+}
 </style>
