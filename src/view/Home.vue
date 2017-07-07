@@ -1,5 +1,5 @@
 <template>
-  <div class="s_home">
+  <div class="s_home" @mousewheel="mousewheelMove">
   	<div class="s_section" :style="{top: currentSection}">
         <template v-for="item in sectionList">
 	       <SectionItem :item="item"></SectionItem>
@@ -21,11 +21,35 @@ import { mapGetters, mapActions } from 'vuex'
 export default{
 	name: 'home',
 	components: { SectionItem, SearchBox, SlideBar },
+  data(){
+    return{
+      ableToWheel: true
+    }
+  },
 	computed: mapGetters({
   	sectionList: 'sectionList',
     currentSection: 'currentSection'
   }),
+  methods:{
+    mousewheelMove(e){
+      let _this = this;
+      if(_this.ableToWheel){
+        let dir;
+        if(e.wheelDeltaY > 0){
+          dir = 'up'
+        }else{
+          dir = 'down'
+        }
+        this.$store.dispatch('turnHomePage', dir);
+        _this.ableToWheel = false;
+        setTimeout(function(){
+          _this.ableToWheel = true;
+        }, 500)
+      }
+    }
+  },
 	mounted(){
+    
 	}
 }	
 </script>

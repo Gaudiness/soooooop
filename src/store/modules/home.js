@@ -6,9 +6,9 @@ import pic from '@/images/pic.jpg';
 
 const state = {
 	sectionList: [
-		{ name: 'Movie', backgroud: movie, current: true },
-		{ name: 'Music', backgroud: music, current: false },
-		{ name: 'Picture', backgroud: pic, current: false }
+		{ name: 'Movie', background: movie, current: true },
+		{ name: 'Music', background: music, current: false },
+		{ name: 'Picture', background: pic, current: false }
 	],
   currentSection: '0%'
 }
@@ -28,18 +28,31 @@ const actions = {
 
 // mutations
 const mutations = {
+  // 点击翻页、滚动翻页
   [types.TURN_HOME_PAGE](state, { item }){
     var list = state.sectionList,
       currentIndex = 0,
       clickOne = item;
     
     list.forEach(function(item, index){
-      item.current = false;
-      if(clickOne.name == item.name){
-        currentIndex = index;
-        clickOne.current = true;
+      if(clickOne === 'up' || clickOne === 'down'){
+        if(item.current)
+          currentIndex = index;
+      }else{
+        if(clickOne.name == item.name)
+          currentIndex = index;
       }
+      item.current = false;
     });
+
+    if(clickOne === 'up'){
+      if(currentIndex > 0)
+        currentIndex--;
+    }else if(clickOne === 'down'){
+      if(currentIndex < list.length - 1)
+        currentIndex++;
+    }
+    list[currentIndex].current = true;
     state.currentSection = -100 * currentIndex + '%';
   }
 }

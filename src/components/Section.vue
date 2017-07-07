@@ -1,5 +1,5 @@
 <template>
-	<div class="s_section_item">
+	<div class="s_section_item" :style="{backgroundImage:'url('+item.background+')'}">
 		<div class="s_section_cover">
 			{{ item.name }}
 			<div class="s_section_author">by sun. Don't settle for less</div>
@@ -24,12 +24,12 @@ export default{
 
 <style lang="less">
 .s_section_item{
-	
 	width: 100%;
 	height: 100%;
 	background: url(../images/pic.jpg) no-repeat 100% 100%;
 
 	.s_section_cover{
+		position: relative;
 		width: 100%;
 		height: 100%;
 		background: rgba(0, 0, 0, 0.5);

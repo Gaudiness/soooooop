@@ -18,7 +18,7 @@ export default{
   },
   props: ['sectionList'],
   mounted(){
-    console.log(this.sectionList);
+    // console.log(this.sectionList);
   }
 }
 </script>
