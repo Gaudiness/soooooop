@@ -5,11 +5,9 @@
 	       <SectionItem :item="item"></SectionItem>
         </template>
     </div>
-    <div class="s_search">
-    	<SearchBox></SearchBox>
-    </div>
+  	<SearchBox :shadowMode="shadowMode"></SearchBox>
     <div class="s_slide">
-    	<SlideBar :sectionList="sectionList"></SlideBar>
+    	<SlideBar :sectionList="sectionList" :shadowMode="shadowMode"></SlideBar>
     </div>
   </div>
 </template>
@@ -28,7 +26,8 @@ export default{
   },
 	computed: mapGetters({
   	sectionList: 'sectionList',
-    currentSection: 'currentSection'
+    currentSection: 'currentSection',
+    shadowMode: 'shadowMode'
   }),
   methods:{
     mousewheelMove(e){

@@ -10,13 +10,15 @@ const state = {
 		{ name: 'Music', background: music, current: false },
 		{ name: 'Picture', background: pic, current: false }
 	],
-  currentSection: '0%'
+  currentSection: '0%',
+  shadowMode: false
 }
 
 // getters
 const getters = {
   sectionList: state => state.sectionList,
-	currentSection: state => state.currentSection,
+  currentSection: state => state.currentSection,
+	shadowMode: state => state.shadowMode,
 }
 
 // actions
@@ -24,6 +26,10 @@ const actions = {
   turnHomePage({ commit, state }, item){
     commit(types.TURN_HOME_PAGE, { item });
   },
+
+  setShadowMode({ commit, state }, status){
+    commit(types.SET_SHADOW_MODE, { status })
+  }
 }
 
 // mutations
@@ -54,6 +60,11 @@ const mutations = {
     }
     list[currentIndex].current = true;
     state.currentSection = -100 * currentIndex + '%';
+  },
+
+  [types.SET_SHADOW_MODE](state, { status }){
+    state.shadowMode = status;
+    console.log(status)
   }
 }
 

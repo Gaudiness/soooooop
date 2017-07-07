@@ -16,7 +16,7 @@ export default{
       this.$store.dispatch('turnHomePage', item);
     }
   },
-  props: ['sectionList'],
+  props: ['sectionList', 'shadowMode'],
   mounted(){
     // console.log(this.sectionList);
   }
@@ -54,8 +54,5 @@ export default{
     }
 
   }
-}	
-
-
-
+}
 </style>
