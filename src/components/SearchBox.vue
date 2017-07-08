@@ -31,8 +31,8 @@ export default{
 	right: 100px;
 	height: 100px;
 	margin: 0 auto;
-	border-radius: 3px;
-	background: rgba(0, 0, 0, 0.3);
+	border-radius: 4px;
+	background: rgba(0, 0, 0, 0.6);
 	-webkit-transition: top 0.5s, left 0.5s, right 0.5s, height 0.5s;
 
 	.s_search_container{

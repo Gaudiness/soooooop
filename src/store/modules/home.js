@@ -6,9 +6,90 @@ import pic from '@/images/pic.jpg';
 
 const state = {
 	sectionList: [
-		{ name: 'Movie', background: movie, current: true, mode: 'movie' },
-		{ name: 'Music', background: music, current: false, mode: 'music' },
-		{ name: 'Picture', background: pic, current: false, mode: 'pic' }
+		{ name: 'Movie', 
+      background: movie, 
+      current: true,
+      mode: 'movie',
+      list: [{
+        name: 'movie1',
+        discription: 'this is the discription of movie1',
+        pic: '',
+        top: '270px',
+        left: '23px',
+      },{
+        name: 'movie2',
+        discription: 'this is the discription of movie2',
+        pic: '',
+        top: '120px',
+        left: '197px',
+      },{
+        name: 'movie3',
+        discription: 'this is the discription of movie3',
+        pic: '',
+        top: '194px',
+        left: '400px',
+      }]
+    }, { 
+      name: 'Music',
+      background: music, 
+      current: false, 
+      mode: 'music',
+      list: [{
+        name: '1',
+        discription: '',
+        pic: '',
+        top: '',
+        left: '',
+        right: '',
+        bottom: ''
+      },{
+        name: '2',
+        discription: '',
+        pic: '',
+        top: '',
+        left: '',
+        right: '',
+        bottom: ''
+      },{
+        name: '3',
+        discription: '',
+        pic: '',
+        top: '',
+        left: '',
+        right: '',
+        bottom: ''
+      }]
+    }, { 
+      name: 'Picture', 
+      background: pic, 
+      current: false, 
+      mode: 'pic' ,
+      list: [{
+        name: '1',
+        discription: '',
+        pic: '',
+        top: '',
+        left: '',
+        right: '',
+        bottom: ''
+      },{
+        name: '2',
+        discription: '',
+        pic: '',
+        top: '',
+        left: '',
+        right: '',
+        bottom: ''
+      },{
+        name: '3',
+        discription: '',
+        pic: '',
+        top: '',
+        left: '',
+        right: '',
+        bottom: ''
+      }]
+    }
 	],
   currentSection: '0%',
   shadowMode: false
@@ -64,7 +145,6 @@ const mutations = {
 
   [types.SET_SHADOW_MODE](state, { status }){
     state.shadowMode = status;
-    console.log(status)
   }
 }
 
