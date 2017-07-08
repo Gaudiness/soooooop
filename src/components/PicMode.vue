@@ -2,18 +2,15 @@
 	<div class="s_section_item" :style="{backgroundImage:'url('+item.background+')'}">
 		<div class="s_section_cover">
 			<!-- {{ item.name }} -->
-			<SnowItem></SnowItem>
 			<div class="s_section_author">Don't settle for less __by sun.</div>
 		</div>
 	</div>
 </template>
 
 <script>
-import SnowItem from '@/components/SnowItem'
 export default{
 	name: '',
 	props: ['item'],
-	components: { SnowItem },
 	mounted(){
 		// console.log(this.item);
 	}

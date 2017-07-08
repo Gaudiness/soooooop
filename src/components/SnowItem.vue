@@ -22,12 +22,15 @@ export default{
 
 <style lang="less">
 .s_snow_outer{
-	width: 200px;
-	height: 250px;
+	position: absolute;
+	top: 200px;
+	left: 300px;
+	width: 150px;
+	height: 150px;
 	float: left;
-	margin-left: 10px;
 	overflow: hidden;
 	transform:rotate(120deg);
+	cursor: pointer;
 
 	.s_snow_middle{
 		width: 100%;

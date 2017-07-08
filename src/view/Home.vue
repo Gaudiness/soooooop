@@ -2,7 +2,15 @@
   <div class="s_home" @mousewheel="mousewheelMove">
   	<div class="s_section" :style="{top: currentSection}">
         <template v-for="item in sectionList">
-	       <SectionItem :item="item"></SectionItem>
+          <template v-if="item.mode==='movie'">
+            <MovieMode :item="item"></MovieMode>
+          </template>
+          <template v-else-if="item.mode=='music'">
+            <MusicMode :item="item"></MusicMode>
+          </template>
+          <template v-else-if="item.mode==='pic'">
+            <PicMode :item="item"></PicMode>
+          </template>
         </template>
     </div>
   	<SearchBox :shadowMode="shadowMode"></SearchBox>
@@ -12,13 +20,15 @@
   </div>
 </template>
 <script>
-import SectionItem from '@/components/Section'
+import MovieMode from '@/components/MovieMode'
+import MusicMode from '@/components/MusicMode'
+import PicMode from '@/components/PicMode'
 import SearchBox from '@/components/SearchBox'
 import SlideBar from '@/components/SlideBar'
 import { mapGetters, mapActions } from 'vuex'
 export default{
 	name: 'home',
-	components: { SectionItem, SearchBox, SlideBar },
+	components: { MovieMode, MusicMode, PicMode, SearchBox, SlideBar },
   data(){
     return{
       ableToWheel: true

@@ -6,9 +6,9 @@ import pic from '@/images/pic.jpg';
 
 const state = {
 	sectionList: [
-		{ name: 'Movie', background: movie, current: true },
-		{ name: 'Music', background: music, current: false },
-		{ name: 'Picture', background: pic, current: false }
+		{ name: 'Movie', background: movie, current: true, mode: 'movie' },
+		{ name: 'Music', background: music, current: false, mode: 'music' },
+		{ name: 'Picture', background: pic, current: false, mode: 'pic' }
 	],
   currentSection: '0%',
   shadowMode: false
