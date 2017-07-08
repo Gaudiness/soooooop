@@ -27,7 +27,7 @@ const state = {
         discription: 'this is the discription of movie3',
         pic: '',
         top: '194px',
-        left: '400px',
+        left: '600px',
       }]
     }, { 
       name: 'Music',
@@ -40,24 +40,18 @@ const state = {
         pic: '',
         top: '',
         left: '',
-        right: '',
-        bottom: ''
       },{
         name: '2',
         discription: '',
         pic: '',
         top: '',
         left: '',
-        right: '',
-        bottom: ''
       },{
         name: '3',
         discription: '',
         pic: '',
         top: '',
         left: '',
-        right: '',
-        bottom: ''
       }]
     }, { 
       name: 'Picture', 
@@ -70,24 +64,18 @@ const state = {
         pic: '',
         top: '',
         left: '',
-        right: '',
-        bottom: ''
       },{
         name: '2',
         discription: '',
         pic: '',
         top: '',
         left: '',
-        right: '',
-        bottom: ''
       },{
         name: '3',
         discription: '',
         pic: '',
         top: '',
         left: '',
-        right: '',
-        bottom: ''
       }]
     }
 	],

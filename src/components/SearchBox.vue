@@ -70,4 +70,12 @@ export default{
 	right: 0;
 	height: 100%;
 }
+
+@media (max-width: 1200px) {
+	.s_searchbox{
+		top: 0;
+		left: 0;
+		right: 0;
+	}
+}
 </style>
