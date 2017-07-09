@@ -14,11 +14,21 @@ import pic8 from '@/images/8.jpg'
 
 const staticFunc = {
   getRangeRandom: function(high, low, adjust){
-    return Math.ceil(Math.random() * (high - low - adjust) + low);
+    let ramdom;
+    if(adjust){
+      ramdom = Math.random() * (high - low - adjust) + low
+    }else{
+      ramdom = Math.random() * (high - low) + low
+    }
+    return Math.ceil(ramdom);
   },
 
   get30DegRandom: function(){
     return ((Math.random() > 0.5 ? '' : '-') + Math.ceil(Math.random() * 30));
+  },
+
+  setListRandom: function(array){
+    return array.sort(function(){ return 0.5 - Math.random() })
   }
 }
 
@@ -29,45 +39,61 @@ const state = {
     current: true, 
     mode: 'pic' ,
     list: [{
+      id: '1',
       name: '1 come from scout.sun',
       discription: 'discription of pic1',
       src: pic1,
       pos: null,
+      isCenter: true
     },{
+      id: '2',
       name: '2 come from scout.sun',
       discription: 'discription of pic2',
       src: pic2,
       pos: null,
+      isCenter: false
     },{
+      id: '3',
       name: '3 come from scout.sun',
       discription: 'discription of pic3',
       src: pic3,
       pos: null,
+      isCenter: false
     },{
+      id: '4',
       name: '4 come from scout.sun',
       discription: 'discription of pic4',
       src: pic4,
       pos: null,
+      isCenter: false
     },{
+      id: '5',
       name: '5 come from scout.sun',
       discription: 'discription of pic5',
       src: pic5,
       pos: null,
+      isCenter: false
     },{
+      id: '6',
       name: '6 come from scout.sun',
       discription: 'discription of pic6',
       src: pic6,
       pos: null,
+      isCenter: false
     },{
+      id: '7',
       name: '7 come from scout.sun',
       discription: 'discription of pic7',
       src: pic7,
       pos: null,
+      isCenter: false
     },{
+      id: '8',
       name: '8 come from scout.sun',
       discription: 'discription of pic8',
       src: pic8,
       pos: null,
+      isCenter: false
     }]
   },{ 
     name: 'Music',
@@ -137,6 +163,10 @@ const actions = {
 
   setPicPostion({ commit, state }, item){
     commit(types.SET_PIC_POSITION, { item })
+  },
+
+  picTurnSide({ commit, state }, item){
+    commit(types.PIC_TURN_SIDE, { item })
   }
 }
 
@@ -188,7 +218,11 @@ const mutations = {
       // 7: bottom middle, 
       // 8: bottom right
       xMin, xMax, 
-      yMin, yMax;
+      yMin, yMax,
+      currentItem = item,
+      currentIndex = 0;
+
+    // picList = staticFunc.setListRandom(picList);
 
     picList.forEach(function(item, index){
       if(area === 1 || area === 2 || area === 3){
@@ -204,7 +238,6 @@ const mutations = {
           xMin = width / 2;
           xMax = width;
         }
-        
       }else if(area === 4 || area === 5){
         yMin = height / 4;
         yMax = height / 4 * 3;
@@ -230,21 +263,41 @@ const mutations = {
         }
       }
 
+      if(currentItem && currentItem.id === item.id)
+        currentIndex = index;
+
       item.pos = {
         top: staticFunc.getRangeRandom(yMax, yMin, 260) + 'px',
         left: staticFunc.getRangeRandom(xMax, xMin, 388) + 'px',
+        right: 'auto',
+        bottom: 'auto',
         transform: 'rotate(' + staticFunc.get30DegRandom() + 'deg)',
-        zIndex: staticFunc.getRangeRandom(4, 0)
-      }
-
-      console.log(area, yMax, yMin, xMax, xMin, item.pos)
-
+        zIndex: staticFunc.getRangeRandom(4, 0),
+      };
       if(area < 8){
         area ++;
       }else{
         area = 1;
-      }
+      };
+      // 设置非居中标识
+      item.isCenter = false;
     });
+    picList[currentIndex].pos = {
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      transform: 'none',
+      zIndex: 5,
+      width: '500px',
+      height: '300px',
+      background: 'white'
+    }
+    picList[currentIndex].isCenter = true;
+  },
+
+  [types.PIC_TURN_SIDE](state, { item }){
+    console.log('PIC_TURN_SIDE');
   }
 }
 
