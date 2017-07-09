@@ -21,7 +21,6 @@ export default{
 
 .s_snow_container{
   position: absolute;
-  transform:rotate(-45deg);
 
   .s_running_snow {
     position: relative;
@@ -33,6 +32,7 @@ export default{
     transition: 0.6s;
     background: rgba(0, 0, 0, 0.5);
     transform-style: preserve-3d;
+    border-radius: 4px;
 
 
     .s_running_front , .s_running_back{
@@ -47,11 +47,11 @@ export default{
       backface-visibility: hidden;
     }
     .s_running_front {
-      transform: rotateY(0deg) rotate(45deg);
+      transform: rotateY(0deg);
       z-index: 2;
     }
     .s_running_back {
-      transform: rotateY(-180deg) rotate(45deg);
+      transform: rotateY(-180deg);
     }
   }
 
@@ -60,7 +60,7 @@ export default{
   }
 
   .s_snow_animation{
-    animation: s_snow_truning 3s infinite;
+    animation: s_snow_truning 3s infinite ease-in-out;
   }
 
   @keyframes s_snow_truning{

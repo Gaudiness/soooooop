@@ -1,3 +1,4 @@
 // 主页
 export const TURN_HOME_PAGE = 'TURN_HOME_PAGE'
 export const SET_SHADOW_MODE = 'SET_SHADOW_MODE'
+export const SET_PIC_POSITION = 'SET_PIC_POSITION'

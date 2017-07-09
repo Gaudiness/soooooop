@@ -32,6 +32,7 @@ export default{
 	height: 100px;
 	margin: 0 auto;
 	border-radius: 4px;
+  z-index: 100;
 	background: rgba(0, 0, 0, 0.6);
 	-webkit-transition: top 0.5s, left 0.5s, right 0.5s, height 0.5s;
 
