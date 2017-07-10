@@ -100,23 +100,9 @@ const state = {
     background: music, 
     current: false, 
     mode: 'music',
-    list: [{
-      name: '1',
-      discription: '',
-      pic: '',
-      pos: null,
-    },{
-      name: '2',
-      discription: '',
-      pic: '',
-      pos: null,
-    },{
-      name: '3',
-      discription: '',
-      pic: '',
-      pos: null,
-    }]
-  },{ name: 'Movie', 
+    list: []
+  },{ 
+    name: 'Movie', 
     background: movie,
     current: false,
     mode: 'movie',
@@ -167,6 +153,10 @@ const actions = {
 
   picTurnSide({ commit, state }, item){
     commit(types.PIC_TURN_SIDE, { item })
+  },
+
+  getMusicItem({ commit, state }){
+    commit(types.GET_MUSIC_ITEM)
   }
 }
 
@@ -298,6 +288,23 @@ const mutations = {
 
   [types.PIC_TURN_SIDE](state, { item }){
     console.log('PIC_TURN_SIDE');
+  },
+
+  [types.GET_MUSIC_ITEM](state){
+    let width = document.body.clientWidth,
+      height = document.body.clientHeight - 100,
+      rowCount = Math.ceil((width - 100) / 80),
+      list = state.sectionList[1].list;
+    console.log(rowCount);
+
+    for(let i = 0; i < rowCount; i++){
+      list.push({
+        pos: {
+          left: i * 80 + 70 + 'px',
+          height: staticFunc.getRangeRandom(height, 0) + 'px'
+        }
+      })
+    }
   }
 }
 

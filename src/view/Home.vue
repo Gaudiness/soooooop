@@ -58,7 +58,10 @@ export default{
     }
   },
 	mounted(){
+    // 获取图片位置
     this.$store.dispatch('setPicPostion');
+    // 获取音乐点位
+    this.$store.dispatch('getMusicItem');
 	}
 }	
 </script>
@@ -103,6 +106,7 @@ export default{
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
+    overflow: hidden;
 
     .s_section_author{
       position: absolute;

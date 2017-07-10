@@ -1,7 +1,7 @@
 <template>
 	<div class="s_section_item" :style="{backgroundImage:'url('+item.background+')'}">
 		<div class="s_section_cover">
-			<DancingMusic></DancingMusic>
+			<DancingMusic :music="item.list"></DancingMusic>
 			<div class="s_section_author">Don't settle for less __by sun.</div>
 		</div>
 	</div>
