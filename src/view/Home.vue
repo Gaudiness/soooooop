@@ -58,10 +58,13 @@ export default{
     }
   },
 	mounted(){
+    let _this = this;
     // 获取图片位置
     this.$store.dispatch('setPicPostion');
     // 获取音乐点位
-    this.$store.dispatch('getMusicItem');
+    setInterval(function(){
+      _this.$store.dispatch('getMusicItem');
+    }, 300)
 	}
 }	
 </script>

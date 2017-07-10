@@ -100,6 +100,7 @@ const state = {
     background: music, 
     current: false, 
     mode: 'music',
+    pos: null,
     list: []
   },{ 
     name: 'Movie', 
@@ -292,18 +293,28 @@ const mutations = {
 
   [types.GET_MUSIC_ITEM](state){
     let width = document.body.clientWidth,
-      height = document.body.clientHeight - 100,
-      rowCount = Math.ceil((width - 100) / 80),
-      list = state.sectionList[1].list;
-    console.log(rowCount);
+      height = document.body.clientHeight,
+      rowCount = Math.floor(width / 20),
+      music = state.sectionList[1];
+
+    rowCount = rowCount % 2 ? (rowCount - 6):(rowCount - 5);
+
+    music.pos = {
+      width: rowCount * 20 + 'px',
+      height: height - 50 + 'px'
+    }
+
+    music.list = [];
 
     for(let i = 0; i < rowCount; i++){
-      list.push({
-        pos: {
-          left: i * 80 + 70 + 'px',
-          height: staticFunc.getRangeRandom(height, 0) + 'px'
-        }
-      })
+      if(i%2){
+        music.list.push({
+          pos: {
+            left: i * 20 + 'px',
+            height: staticFunc.getRangeRandom(height - 100, 0) + 'px'
+          }
+        })
+      }
     }
   }
 }

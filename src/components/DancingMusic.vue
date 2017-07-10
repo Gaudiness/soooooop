@@ -1,6 +1,10 @@
 <template>
   <div class="s_music_stage">
-    <div v-for="item in music" class="s_music_row" :style="item.pos"></div>
+    <div class="s_music_container" :style="music.pos">
+      <template v-for="item in music.list">
+        <div class="s_music_item" :style="item.pos"></div>
+      </template>
+    </div>
     <div class="s_stage_line"></div>
   </div>
 </template>
@@ -17,26 +21,31 @@ export default{
 
 <style lang="less">
 .s_music_stage{
-  width: 100%;
   height: 100%;
+  width: 100%;
+
+  .s_music_container{
+    position: relative;
+    bottom: 5px;
+    margin: auto;
+
+    .s_music_item{
+      position: absolute;
+      bottom: 0;
+      width: 20px;
+      background: rgba(0, 0, 0, 0.5);
+      transition: height .3s ease-in;
+    }
+  }
 
   .s_stage_line{
     position: absolute;
-    left: 20px;
-    right: 20px;
-    height: 4px;
+    left: 40px;
+    right: 40px;
     bottom: 50px;
-    border-radius: 3px;
-    background: #ddd;
-  }
-
-  .s_music_row{
-    position: absolute;
-    left: 100px;
-    bottom: 50px;
-    height: 300px;
-    width: 20px;
-    background: rgba(0, 0, 0, 0.5);
+    height: 5px;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, .5);
   }
 }
 
