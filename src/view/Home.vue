@@ -55,6 +55,10 @@ export default{
           _this.ableToWheel = true;
         }, 500)
       }
+    },
+
+    winDowresize(){
+      this.$store.dispatch('setPicPostion');
     }
   },
 	mounted(){
@@ -64,7 +68,9 @@ export default{
     // 获取音乐点位
     setInterval(function(){
       _this.$store.dispatch('getMusicItem');
-    }, 300)
+    }, 300);
+
+    window.addEventListener('resize', this.winDowresize)
 	}
 }	
 </script>

@@ -33,6 +33,7 @@ export default{
       position: absolute;
       bottom: 0;
       width: 20px;
+      cursor: pointer;
       background: rgba(0, 0, 0, 0.5);
       transition: height .3s ease-in;
     }
