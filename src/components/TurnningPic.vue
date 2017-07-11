@@ -3,7 +3,7 @@
     <div class="s_turnning_content">
       <div class="s_trunning_front">
         <div class="s_trunning_pic_container">
-          <img :src="pic.src" :class="{'s_img_color': pic.isCenter}"">
+          <img :src="pic.src" :class="{'s_img_color': pic.isCenter}">
         </div>
         <div class="s_turnning_pic_name" :class="{ddd:pic.isCenter}">{{pic.name}}</div>
       </div>
@@ -70,7 +70,8 @@ export default{
           height: 100%;
           background: white;
           border: 1px solid #ddd;
-          -webkit-filter: grayscale(100%);
+          -webkit-filter: grayscale(1);
+          transition: all .5s cubic-bezier(.25,.46,.45,.94);
         }
 
         img:hover, .s_img_color{
