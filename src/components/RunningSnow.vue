@@ -12,7 +12,7 @@ export default{
   name: '',
   props: ['snow'],
   mounted(){
-    // console.log(this.snow);
+    console.log(this.snow);
   }
 }
 </script>

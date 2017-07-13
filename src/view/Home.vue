@@ -59,6 +59,7 @@ export default{
 
     winDowresize(){
       this.$store.dispatch('setPicPostion');
+      this.$store.dispatch('setMovieCube');
     }
   },
 	mounted(){
@@ -69,7 +70,9 @@ export default{
     setInterval(function(){
       _this.$store.dispatch('getMusicItem');
     }, 300);
-
+    // 设置电影cube参数
+    this.$store.dispatch('setMovieCube');
+    // 监听屏幕 
     window.addEventListener('resize', this.winDowresize)
 	}
 }	

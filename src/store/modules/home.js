@@ -125,7 +125,18 @@ const state = {
       pic: '',
       top: '194px',
       left: '800px',
-    }]
+    }],
+    cube:{ },       // 正方体
+    top: { },       // 上表面
+    bottom: { },    // 下表面
+    left: { },      // 左表面
+    right: { },     // 右表面
+    front: { },     // 前表面
+    back: { },      // 后表面
+    line1:{ },      // 线条1
+    line2:{ },      // 线条2
+    line3:{ },      // 线条3
+    line4:{ }       // 线条4
   }],
   currentSection: '0%',
   shadowMode: false
@@ -158,6 +169,10 @@ const actions = {
 
   getMusicItem({ commit, state }){
     commit(types.GET_MUSIC_ITEM)
+  },
+
+  setMovieCube({ commit, state }){
+    commit(types.SET_MOVIE_CUBE)
   }
 }
 
@@ -316,6 +331,87 @@ const mutations = {
         })
       }
     }
+  },
+
+  [types.SET_MOVIE_CUBE](state){
+    let width = document.body.clientWidth,
+      height = document.body.clientHeight,
+      zIndex = 400,
+      zIndexH = zIndex / 2,
+      stageWidth = width / 3 * 2,
+      stageHeight = height / 2,
+      rightZ = stageWidth - zIndexH,
+      bottomZ = stageHeight - zIndexH,
+      x,
+      w;
+
+    state.sectionList[2].cube = {
+      top: height / 4 + 'px',
+      left: width / 6 + 'px',
+      width: stageWidth + 'px',
+      height: stageHeight + 'px',
+    }
+
+    state.sectionList[2].top = {
+      transform: 'rotateX( 90deg ) translateZ( '+ zIndexH +'px )',
+      width: '100%',
+      height: zIndex + 'px'
+    }
+
+    state.sectionList[2].bottom = {
+      transform: 'rotateX( -90deg ) translateZ( '+ bottomZ +'px )',
+      width: '100%',
+      height: zIndex + 'px'
+    }
+
+    state.sectionList[2].left = {
+      transform: 'rotateY( -90deg ) translateZ( '+ zIndexH +'px )',
+      height: '100%',
+      width: zIndex + 'px'
+    }
+
+    state.sectionList[2].right = {
+      transform: 'rotateY( 90deg ) translateZ( '+ rightZ +'px )',
+      height: '100%',
+      width: zIndex + 'px'
+    }
+
+    state.sectionList[2].front = {
+      transform: 'translateZ('+ zIndex / 2 +'px)',
+      height: '100%',
+      width: '100%'
+    }
+
+    state.sectionList[2].back = {
+      transform: 'translateZ(-'+ zIndex / 2 +'px)',
+      height: '100%',
+      width: '100%'
+    }
+
+    x = Math.tan(300 / stageWidth) * 360 / 2 / 3.14,
+    w = Math.sqrt(stageHeight * stageHeight + stageWidth * stageWidth);
+    console.log(stageHeight, stageWidth, x)
+
+    state.sectionList[2].line1 = {
+      width: w + 'px',
+      transform: 'rotateX(0deg) rotateY('+ x +'deg)'
+    }
+
+    state.sectionList[2].line2 = {
+      width: 'px',
+      transform: 'rotateX(-20deg) rotateY(-40deg)'
+    }
+
+    state.sectionList[2].line3 = {
+      width: 'px',
+      transform: 'rotateX(-20deg) rotateY(-40deg)'
+    }
+
+    state.sectionList[2].line4 = {
+      width: 'px',
+      transform: 'rotateX(-20deg) rotateY(-40deg)'
+    }
+
   }
 }
 
