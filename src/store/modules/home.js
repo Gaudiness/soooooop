@@ -312,7 +312,7 @@ const mutations = {
         music.list.push({
           pos: {
             left: i * 20 + 'px',
-            height: staticFunc.getRangeRandom(height - 100, 0) + 'px'
+            height: staticFunc.getRangeRandom(height - 200, 0) + 'px'
           }
         })
       }
@@ -423,6 +423,7 @@ const mutations = {
       state.sectionList[2].list.push({
         pos:{
           left: i * itemW + 'px',
+          zIndex: listCount - i
         },
         src: list[i]
       })

@@ -43,14 +43,17 @@ export default{
   top: 0;
 
   .s_screen_show{
-    top: 200px;
-    top: 200px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 120px;
+    margin: auto;
     width: 800px;
     height: 400px;
-    margin: 120px auto 0 auto;
     transform: translateZ( 50px );
     transform-style: preserve-3d;
     perspective: 800px;
+    transition: all 0.3s ease-in;
 
     img{
       width: 100%;
@@ -63,10 +66,13 @@ export default{
   }
 
   .s_screen_box{
-    position: relative;
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 60px;
     height: 220px;
-    margin: 80px auto 0 auto;
-    
+    margin: auto;
+    transition: all 0.3s ease-in;
 
     .s_screen_card{
       position: absolute;
@@ -105,7 +111,7 @@ export default{
     }
 
     .s_screen_card:hover{
-      z-index: 3;
+      z-index: 33!important;
 
       .s_card_container {
         transform: rotateY(0deg);
@@ -134,5 +140,36 @@ export default{
     box-shadow: 0 0 5px rgba(255, 255, 255, 0.5)
   }
 }
+
+@media (max-width: 1200px) {
+  .s_screen_show{
+    top: 200px!important;
+    left: 40px!important;
+    width: 700px!important;
+    height: 400px!important;
+    margin: 0!important;
+  }
+  
+  .s_screen_box{
+    left: auto!important;
+    right: 0!important;
+    top: 100px!important;
+    bottom: 0!important;
+    height: 100%!important;
+    width: 200px!important;
+    margin: 0!important;
+
+    .s_screen_card{
+      width: 100px;
+    }
+
+    .s_card_container{
+      transform: rotateY(-60deg)!important;
+    }
+
+  }
+
+}
+
 
 </style>
