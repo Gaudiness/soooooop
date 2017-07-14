@@ -7,4 +7,5 @@ export const GET_MUSIC_ITEM = 'GET_MUSIC_ITEM'
 export const SET_MOVIE_CUBE = 'SET_MOVIE_CUBE'
 export const SCREEN_MOVE = 'SCREEN_MOVE'
 export const SET_MOVIE_LIST = 'SET_MOVIE_LIST'
+export const SCREEN_PIC_OVER = 'SCREEN_PIC_OVER'
 

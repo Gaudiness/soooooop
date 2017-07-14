@@ -159,6 +159,10 @@ const actions = {
 
   setMovieList({ commit, state}){
     commit(types.SET_MOVIE_LIST)
+  },
+
+  screenPicOver({ commit, state }, item){
+    commit(types.SCREEN_PIC_OVER, { item })
   }
 }
 
@@ -413,17 +417,23 @@ const mutations = {
 
     state.sectionList[2].list = [];
 
+    let list = [ pic1, pic2, pic3, pic4, pic5, pic6, pic7, pic8,  pic1, pic2, pic3, pic4, pic5, pic6, pic7, pic8 ]
+
     for(let i = 0; i < listCount; i++){
       state.sectionList[2].list.push({
         pos:{
           left: i * itemW + 'px',
         },
-        src: pic6
+        src: list[i]
       })
     }
     state.sectionList[2].pos = {
       width: listW + 'px'
     }
+  },
+
+  [types.SCREEN_PIC_OVER](state, { item }){
+    state.sectionList[2].screenPos.src = item.src;
   }
 }
 

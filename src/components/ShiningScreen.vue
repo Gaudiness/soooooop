@@ -6,7 +6,7 @@
     <div class="s_screen_box" :style="movie.pos">
       <template v-for="item in movie.list">
         <div class="s_screen_card" :style="item.pos">
-          <div class="s_card_container">
+          <div class="s_card_container" @mouseover="screenPicOver(item)">
             <img :src="item.src">
             <div class="s_card_discription"></div>
           </div>
@@ -23,6 +23,10 @@ export default{
   methods:{
     screenMove: function(e){
       this.$store.dispatch('screenMove', e);
+    },
+
+    screenPicOver: function(item){
+      this.$store.dispatch('screenPicOver', item);
     }
   },
   mounted(){
@@ -72,6 +76,7 @@ export default{
       z-index: 2;
 
       .s_card_container{
+        cursor: pointer;
         transform-style: preserve-3d;
         perspective: 1200px;
         width: 100%;
@@ -87,6 +92,8 @@ export default{
           width: 100%;
           height: 190px;
           border: 1px solid #ddd;
+          -webkit-filter: grayscale(1);
+          transition: all .5s cubic-bezier(.25,.46,.45,.94);
         }
 
         .s_card_discription{
@@ -103,6 +110,10 @@ export default{
       .s_card_container {
         transform: rotateY(0deg);
         background: white;
+
+        img{
+          -webkit-filter: none;
+        }
       }
     }
 
