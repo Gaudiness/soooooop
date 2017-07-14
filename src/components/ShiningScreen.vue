@@ -1,13 +1,14 @@
 <template>
   <div class="s_screen_stage">
     <div class="s_screen_show">
-      <img src="" :style="movie.screenPos" @mousemove="screenMove">
+      <img :src="movie.screenPos.src" :style="movie.screenPos" @mousemove="screenMove">
     </div>
     <div class="s_screen_box" :style="movie.pos">
       <template v-for="item in movie.list">
         <div class="s_screen_card" :style="item.pos">
           <div class="s_card_container">
             <img :src="item.src">
+            <div class="s_card_discription"></div>
           </div>
         </div>  
       </template>
@@ -34,8 +35,7 @@ export default{
 .s_screen_stage{
   position: absolute;
   width: 100%;
-  height: 100%;
-  
+  height: 100%; 
   top: 0;
 
   .s_screen_show{
@@ -51,15 +51,17 @@ export default{
     img{
       width: 100%;
       height: 100%;
+      padding: 30px 0;
       background: rgba(0, 0, 0, .6);
       box-shadow: 0 0 20px rgba(255, 255, 255, 1);
     }
+
   }
 
   .s_screen_box{
     position: relative;
     height: 220px;
-    margin: 40px auto 0 auto;
+    margin: 80px auto 0 auto;
     
 
     .s_screen_card{
@@ -75,13 +77,22 @@ export default{
         width: 100%;
         height: 100%;
         transition: all 0.3s ease-in;
-        transform: rotateY(-30deg);
+        transform: rotateY(-60deg);
         transform-origin: center;
         background: rgba(0, 0, 0, 0.5);
+        padding: 10px;
 
         img{
+          display: block;
           width: 100%;
-          height: 100%;
+          height: 190px;
+          border: 1px solid #ddd;
+        }
+
+        .s_card_discription{
+          width: 100%;
+          height: 20px;
+          color: black;
         }
       }
     }
@@ -91,12 +102,16 @@ export default{
 
       .s_card_container {
         transform: rotateY(0deg);
-
-        
+        background: white;
       }
     }
 
   }
+}
+
+.test{
+  width: 100px;
+  height: 40px;
 }
 
 @keyframes shining-screen {

@@ -107,9 +107,13 @@ const state = {
     background: movie,
     current: false,
     mode: 'movie',
-    list: [],
+    list: [{
+      left: '0px',
+      src: pic3
+    }],
     screenPos: { 
-      transform: 'rotateY(0deg)'
+      transform: 'rotateY(0deg)',
+      src: pic1
     }
   }],
   currentSection: '0%',
@@ -398,9 +402,7 @@ const mutations = {
       deg = (x - screenWidth/2) / (screenWidth/2),
       dDeg = deg * 2,
       shadowX = -deg * 5;
-    state.sectionList[2].screenPos = {
-      transform: 'rotateY('+ dDeg +'deg)'
-    }
+    state.sectionList[2].screenPos.transform = 'rotateY('+ dDeg +'deg)';
   },
 
   [types.SET_MOVIE_LIST](state){
@@ -415,8 +417,8 @@ const mutations = {
       state.sectionList[2].list.push({
         pos:{
           left: i * itemW + 'px',
-          src: pic1
-        }
+        },
+        src: pic6
       })
     }
     state.sectionList[2].pos = {
