@@ -44,7 +44,7 @@ const state = {
       discription: 'discription of pic1',
       src: pic1,
       pos: null,
-      isCenter: true
+      isCenter: false
     },{
       id: '2',
       name: '2 come from scout.sun',
@@ -107,36 +107,10 @@ const state = {
     background: movie,
     current: false,
     mode: 'movie',
-    list: [{
-      name: 'movie1',
-      discription: 'this is the discription of movie1',
-      pic: '',
-      top: '170px',
-      left: '23px',
-    },{
-      name: 'movie2',
-      discription: 'this is the discription of movie2',
-      pic: '',
-      top: '340px',
-      left: '397px',
-    },{
-      name: 'movie3',
-      discription: 'this is the discription of movie3',
-      pic: '',
-      top: '194px',
-      left: '800px',
-    }],
-    cube:{ },       // 正方体
-    top: { },       // 上表面
-    bottom: { },    // 下表面
-    left: { },      // 左表面
-    right: { },     // 右表面
-    front: { },     // 前表面
-    back: { },      // 后表面
-    line1:{ },      // 线条1
-    line2:{ },      // 线条2
-    line3:{ },      // 线条3
-    line4:{ }       // 线条4
+    list: [],
+    screenPos: { 
+      transform: 'rotateY(0deg)'
+    }
   }],
   currentSection: '0%',
   shadowMode: false
@@ -173,6 +147,14 @@ const actions = {
 
   setMovieCube({ commit, state }){
     commit(types.SET_MOVIE_CUBE)
+  },
+
+  screenMove({ commit, state }, e){
+    commit(types.SCREEN_MOVE, { e })
+  },
+
+  setMovieList({ commit, state}){
+    commit(types.SET_MOVIE_LIST)
   }
 }
 
@@ -205,11 +187,11 @@ const mutations = {
     list[currentIndex].current = true;
     state.currentSection = -100 * currentIndex + '%';
   },
-
+  // 设置
   [types.SET_SHADOW_MODE](state, { status }){
     state.shadowMode = status;
   },
-
+  // 设置图片位置
   [types.SET_PIC_POSITION](state, {item}){
     let picList = state.sectionList[0].list,
       width = document.body.clientWidth,
@@ -301,11 +283,7 @@ const mutations = {
     }
     picList[currentIndex].isCenter = true;
   },
-
-  [types.PIC_TURN_SIDE](state, { item }){
-    console.log('PIC_TURN_SIDE');
-  },
-
+  // 设置音乐
   [types.GET_MUSIC_ITEM](state){
     let width = document.body.clientWidth,
       height = document.body.clientHeight,
@@ -332,7 +310,7 @@ const mutations = {
       }
     }
   },
-
+  // 设置长方体
   [types.SET_MOVIE_CUBE](state){
     let width = document.body.clientWidth,
       height = document.body.clientHeight,
@@ -412,6 +390,38 @@ const mutations = {
       transform: 'rotateX(-20deg) rotateY(-40deg)'
     }
 
+  },
+  // 监听screen移动
+  [types.SCREEN_MOVE](state, { e }){
+    let screenWidth = 800,
+      x = e.offsetX,
+      deg = (x - screenWidth/2) / (screenWidth/2),
+      dDeg = deg * 2,
+      shadowX = -deg * 5;
+    state.sectionList[2].screenPos = {
+      transform: 'rotateY('+ dDeg +'deg)'
+    }
+  },
+
+  [types.SET_MOVIE_LIST](state){
+    let width = document.body.clientWidth,
+      itemW = 80,
+      listCount = Math.floor(width / itemW) - 3,
+      listW = listCount * itemW + 120;
+
+    state.sectionList[2].list = [];
+
+    for(let i = 0; i < listCount; i++){
+      state.sectionList[2].list.push({
+        pos:{
+          left: i * itemW + 'px',
+          src: pic1
+        }
+      })
+    }
+    state.sectionList[2].pos = {
+      width: listW + 'px'
+    }
   }
 }
 

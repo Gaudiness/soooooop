@@ -14,7 +14,7 @@ export default{
   name: 'DancingMusic',
   props: ['music'],
   mounted(){
-    console.log(this.music);
+    // console.log(this.music);
   }
 }
 </script>
