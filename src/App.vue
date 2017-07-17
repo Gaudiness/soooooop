@@ -25,7 +25,7 @@ html, body{
   padding: 0;
   height: 100%;
   width: 100%;
-  min-height: 500px;
+  min-height: 720px;
 
   #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;

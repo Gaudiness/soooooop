@@ -4,7 +4,8 @@
       <img :src="movie.screenPos.src" :style="movie.screenPos" @mousemove="screenMove">
     </div>
     <div class="s_screen_box" :style="movie.pos">
-      <template v-for="item in movie.list">
+      <template v-for="(item, index) in movie.list">
+        <div class="s_screen_index" @mouseover="screenPicOver(item)">{{index + 1}}</div>
         <div class="s_screen_card" :style="item.pos">
           <div class="s_card_container" @mouseover="screenPicOver(item)">
             <img :src="item.src">
@@ -46,7 +47,7 @@ export default{
     position: absolute;
     left: 0;
     right: 0;
-    top: 120px;
+    top: 160px;
     margin: auto;
     width: 800px;
     height: 400px;
@@ -72,7 +73,26 @@ export default{
     bottom: 60px;
     height: 220px;
     margin: auto;
+    text-align: center;
     transition: all 0.3s ease-in;
+
+    .s_screen_index{
+      display: none;
+      width: 25px;
+      height: 25px;
+      line-height: 25px;
+      text-align: center;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      margin: 150px 20px 0 5px;
+      cursor: pointer;
+    }
+
+    .s_screen_index:hover{
+      background: rgba(255, 255, 255, 0.5);
+      color: black;
+    }
 
     .s_screen_card{
       position: absolute;
@@ -141,35 +161,26 @@ export default{
   }
 }
 
-@media (max-width: 1200px) {
-  .s_screen_show{
-    top: 200px!important;
-    left: 40px!important;
-    width: 700px!important;
-    height: 400px!important;
-    margin: 0!important;
-  }
+@media (max-height: 840px) {
   
-  .s_screen_box{
-    left: auto!important;
-    right: 0!important;
-    top: 100px!important;
-    bottom: 0!important;
-    height: 100%!important;
-    width: 200px!important;
-    margin: 0!important;
+  .s_screen_show{
+    top: 180px!important;
+  }
 
-    .s_screen_card{
-      width: 100px;
-    }
+  .s_card_container{
+    display: none;
+  }
 
-    .s_card_container{
-      transform: rotateY(-60deg)!important;
-    }
-
+  .s_screen_index{
+    display: inline-block!important;
   }
 
 }
 
+@media (max-height: 720px) {
+  .s_screen_index{
+    margin-top: 180px!important;
+  }
+}
 
 </style>
