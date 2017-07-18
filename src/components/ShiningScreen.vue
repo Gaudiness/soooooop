@@ -47,7 +47,7 @@ export default{
     position: absolute;
     left: 0;
     right: 0;
-    top: 160px;
+    top: 180px;
     margin: auto;
     width: 800px;
     height: 400px;
@@ -146,11 +146,6 @@ export default{
   }
 }
 
-.test{
-  width: 100px;
-  height: 40px;
-}
-
 @keyframes shining-screen {
   0%{
     box-shadow: 0 0 5px rgba(255, 255, 255, 0.5)
@@ -162,10 +157,6 @@ export default{
 }
 
 @media (max-height: 840px) {
-  
-  .s_screen_show{
-    top: 180px!important;
-  }
 
   .s_card_container{
     display: none;
