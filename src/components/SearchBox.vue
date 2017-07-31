@@ -2,7 +2,9 @@
 	<div class="s_searchbox" :class="{ 's_search_shadow':shadowMode }">
 		<div class="s_search_container">
 			<input @focus="searchFocus" @blur="searchBlur">
-			<i class="soop s-bigger"></i>
+			<router-link :to="{path: 'list'}">
+				<i class="soop s-bigger"></i>
+			</router-link>
 		</div>
 	</div>
 </template>
@@ -17,8 +19,8 @@ export default{
 		},
 
 		searchBlur(){
-			this.$store.dispatch('setShadowMode', false);
-		}
+			// this.$store.dispatch('setShadowMode', false);
+		},
 	}
 }
 </script>
