@@ -157,21 +157,19 @@ export default{
 }
 
 @media (max-height: 840px) {
+  .s_screen_box{
+    height: 30px!important;
 
-  .s_card_container{
-    display: none;
+    .s_card_container{
+      display: none;
+    }
+
+    .s_screen_index{
+      margin-top: 0!important;
+      display: inline-block!important;
+    }
   }
 
-  .s_screen_index{
-    display: inline-block!important;
-  }
-
-}
-
-@media (max-height: 720px) {
-  .s_screen_index{
-    margin-top: 180px!important;
-  }
 }
 
 </style>

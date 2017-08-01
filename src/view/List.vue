@@ -4,7 +4,11 @@
       <div class="s_container">
         <div class="s_list_title">
           <span class="s_title_big">Soooooop</span>
-          <span class="s_title_small">of pic</span>
+          <span class="s_title_small">
+            <span>pictrue</span>
+            <span>music</span>
+            <span>movie</span>
+          </span>
         </div>
       </div>
     </div>
@@ -53,6 +57,13 @@
 
     .s_title_small{
       font-size: 14px;
+      float: right;
+
+      span{
+        display: inlint-block;
+        padding: 0 10px;
+        cursor: pointer;
+      }
     }
   }
 
@@ -61,7 +72,7 @@
 
 /*中部*/
 .s_list_container{
-  
+  min-height: 800px;
 }
 
 /*尾部*/
