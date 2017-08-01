@@ -3,18 +3,18 @@
     <div class="s_list_header">
       <div class="s_container">
         <div class="s_list_title">
-          <span class="s_title_big">Soooooop</span>
+          <a href="#" class="s_title_big">Soooooop</a>
           <span class="s_title_small">
-            <span>pictrue</span>
-            <span>music</span>
-            <span>movie</span>
+            <a href="#/list/pic">pictrue</a>
+            <a href="#/list/music">music</a>
+            <a href="#/list/movie">movie</a>
           </span>
         </div>
       </div>
     </div>
     <div class="s_list_container">
       <div class="s_container">
-        
+        <router-view></router-view>
       </div>
     </div>
     <div class="s_list_footer">
@@ -59,7 +59,7 @@
       font-size: 14px;
       float: right;
 
-      span{
+      a{
         display: inlint-block;
         padding: 0 10px;
         cursor: pointer;

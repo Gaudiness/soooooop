@@ -20,6 +20,11 @@ export default {
   color: whtie;
 }
 
+a{
+  color: white;
+  text-decoration: none;
+}
+
 html, body{
   margin: 0;
   padding: 0;
