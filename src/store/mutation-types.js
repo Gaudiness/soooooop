@@ -9,3 +9,5 @@ export const SCREEN_MOVE = 'SCREEN_MOVE'
 export const SET_MOVIE_LIST = 'SET_MOVIE_LIST'
 export const SCREEN_PIC_OVER = 'SCREEN_PIC_OVER'
 
+// axios test
+export const AXIOS_TEST = 'AXIOS_TEST'

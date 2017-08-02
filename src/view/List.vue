@@ -27,7 +27,14 @@
 </template>
 
 <script type="text/javascript">
-  
+
+export default{
+  mounted(){
+    console.log('have a try.');
+    this.$store.dispatch('axiosTest');
+  }
+}
+
 </script>
 
 <style lang="less">
