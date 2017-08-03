@@ -2,12 +2,12 @@ import axios from 'axios'
 
 export default axios.create({
   //`url`是请求的服务器地址
-  url:'/user',
+  url:'',
   //`method`是请求资源的方式
   method:'get',//default
   //如果`url`不是绝对地址，那么`baseURL`将会加到`url`的前面
   //当`url`是相对地址的时候，设置`baseURL`会非常的方便
-  baseURL:'https://some-domain.com/api/',
+  baseURL:'',
   //`transformRequest`选项允许我们在请求发送到服务器之前对请求的数据做出一些改动
   //该选项只适用于以下请求方式：`put/post/patch`
   //数组里面的最后一个函数必须返回一个字符串、-一个`ArrayBuffer`或者`Stream`

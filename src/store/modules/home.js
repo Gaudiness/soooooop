@@ -1,16 +1,16 @@
 import * as types from '../mutation-types'
 
-import movie from '@/images/movie.jpg'
-import music from '@/images/music.jpg'
-import pic from '@/images/pic.jpg'
-import pic1 from '@/images/1.jpg'
-import pic2 from '@/images/2.jpg'
-import pic3 from '@/images/3.jpg'
-import pic4 from '@/images/4.jpg'
-import pic5 from '@/images/5.jpg'
-import pic6 from '@/images/6.jpg'
-import pic7 from '@/images/7.jpg'
-import pic8 from '@/images/8.jpg'
+const movie = 'static/images/movie.jpg'
+const music = 'static/images/music.jpg'
+const pic = 'static/images/pic.jpg'
+const pic1 = 'static/images/1.jpg'
+const pic2 = 'static/images/2.jpg'
+const pic3 = 'static/images/3.jpg'
+const pic4 = 'static/images/4.jpg'
+const pic5 = 'static/images/5.jpg'
+const pic6 = 'static/images/6.jpg'
+const pic7 = 'static/images/7.jpg'
+const pic8 = 'static/images/8.jpg'
 
 const staticFunc = {
   getRangeRandom: function(high, low, adjust){

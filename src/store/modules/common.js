@@ -1,5 +1,6 @@
 import * as types from '../mutation-types'
-import newAxios from '@/axios/config.js'
+import axios from 'axios'
+// import newAxios from '@/axios/config.js'
 
 const state = {
   test: ''
@@ -17,16 +18,16 @@ const actions = {
 
 const mutations = {
   [types.AXIOS_TEST](state){
-    newAxios({
-      url: 'https://api.douban.com/',
-      baseURL: '/v2/movie/in_theaters',
-      then(res){
-        console.log(res);
-      },
-      catch(res){
-        console.log(res);
-      }
-    })
+    axios.get('https://api.douban.com/v2/movie/in_theaters', {
+      withCredentials: true,
+      responseType:'jsonp',
+      xsrfCookieName: 'XSRF-TOKEN',//default
+      xsrfHeaderName:'X-XSRF-TOKEN',//default
+    }).then(function(res){
+      console.log(res);
+    }).catch(function(err){
+      console.log(err);
+    });
   }
 }
 
