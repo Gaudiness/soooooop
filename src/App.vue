@@ -30,7 +30,7 @@ html, body{
   padding: 0;
   height: 100%;
   width: 100%;
-  min-height: 720px;
+  min-height: 666px;
 
   #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;

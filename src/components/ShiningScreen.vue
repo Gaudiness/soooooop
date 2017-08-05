@@ -47,7 +47,7 @@ export default{
     position: absolute;
     left: 0;
     right: 0;
-    top: 180px;
+    top: 170px;
     margin: auto;
     width: 800px;
     height: 400px;
@@ -70,7 +70,7 @@ export default{
     position: absolute;
     right: 0;
     left: 0;
-    bottom: 60px;
+    bottom: 40px;
     height: 220px;
     margin: auto;
     text-align: center;
